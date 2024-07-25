@@ -76,12 +76,12 @@ Summary=Data.describe()
 # print(Summary)
 
 #visualization using Matplotlib
-# ploting a Pie_graph of income_by_gender
+# ploting a bar_graph of income_by_gender
 income_by_gender=Data.groupby("Gender")["Annual Income (k$)"].mean()
 # reindexing as Male,Female
 income_by_gender=income_by_gender.reindex(["Male","Female"])
 
-income_by_gender.plot(kind="pie",color=["pink","Grey"])
+income_by_gender.plot(kind="bar",color=["green","pink"])
 plt.xlabel("Gender")
 plt.ylabel("Average Income")
 plt.title("Average Income by Gender")
@@ -93,7 +93,7 @@ Data_above_40=Data[Data["Age"]>=40]
 plt.figure(figsize=(12, 6))
 # Histogram for ages below 40
 plt.subplot(1, 2, 1)
-plt.hist(Data_below_40['Spending Score (1-100)'], bins=5, color='Red', alpha=0.7)
+plt.hist(Data_below_40['Spending Score (1-100)'], bins=5, color='blue', alpha=0.7)
 plt.title('Spending Score of people having Ages Below 40')
 plt.xlabel('Spending Score')
 plt.ylabel('Frequency')
@@ -135,7 +135,7 @@ Data_Vfiltered=pd.DataFrame(selector.fit_transform(df),columns=df.columns[select
 if(Data_Vfiltered.shape==df.shape):
     print("No columns having less variance")
 else:
-    print("The data have less variance features")
+    print("the data have less variance features")
 
 # the features we are selecting are All features except the customer_id because the feature don't give any valuable insights for the improvement
 
